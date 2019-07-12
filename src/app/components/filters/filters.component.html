@@ -1,0 +1,42 @@
+  <div class="filters-container text-white">
+    <div class="filters-header container">
+      <div class="row">
+        <div class="col-md-12">
+          <br>
+          <h4>Alguien necesita lo que no usas!</h4>
+          <h4>Seleccioná <strong>qué</strong> tenés para dar y te mostramos a <strong>dónde</strong> llevarlo</h4>
+          <!-- <br> -->
+        </div>
+        <div class="col-md-12 filters-header-divider"></div>
+      </div>
+    </div>
+    <br>
+    <div class="container filters-content">
+      <h4 class="filters-body-text">TENGO:</h4>
+      <div class="row">
+        <div *ngFor="let donationTypeFilter of donationTypesFilter" class="col-lg-6 col-md-12 col-sm-6 col-6">
+          <div class="form-check">
+            <input [(ngModel)]="donationTypeFilter.checked" class="form-check-input" id="{{donationTypeFilter._id}}"
+              type="checkbox" value="option1" (change)="updateDonationTypesFilters()">
+            <label class="form-check-label" for="{{donationTypeFilter._id}}"> {{ donationTypeFilter.name | translate }}
+            </label>
+          </div>
+        </div>
+      </div>
+      <br />
+      <div class="row">
+        <div class="col-md-12">
+          <h4 class="filters-body-text">LO LLEVO MÁXIMO: <strong>{{ donationsAndDistanceFilter.maxDistance }}
+              kms</strong></h4>
+          <div class="row">
+            <mat-slider class="col-9" thumbLabel [(value)]="donationsAndDistanceFilter.maxDistance" min="1" max="100"
+              tickInterval="auto" step="1" (change)="emitNewFilters()"></mat-slider>
+            <span class="col-3"><strong>{{ donationsAndDistanceFilter.maxDistance }} kms</strong></span>
+          </div>
+        </div>
+        <div class="col-md-12">
+          <p>¡Arrastrá el marcador rojo para cambiar desde donde llevarías tu donación!</p>
+        </div>
+      </div>
+    </div>
+  </div>

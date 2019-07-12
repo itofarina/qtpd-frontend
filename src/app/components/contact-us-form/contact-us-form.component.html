@@ -1,0 +1,56 @@
+<div class="card">
+  <div class="card-header"><strong>{{ 'ContactUsForm.ContactUs!' | translate }}</strong></div>
+  <div class="card-body">
+    <form ngNativeValidate #f="ngForm" id="sendMessageForm" (ngSubmit)="sendMessage(f)">
+      <fieldset [disabled]="sendingMessage || messageWasSent">
+        <div class="row">
+          <div class="col-sm-12">
+            <div class="form-group">
+              <label for="name">{{ 'ContactUsForm.YourName' | translate }}</label>
+              <input [(ngModel)]="emailMessage.sendersName" class="form-control" id="name"
+                placeholder="{{ 'ContactUsForm.EnterYourNameHere' | translate }}" name="sendersName" type="text"
+                required minlength="5">
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-12">
+            <div class="form-group">
+              <label for="emailAddress">{{ 'ContactUsForm.YourEmailAddress' | translate }}</label>
+              <input [(ngModel)]="emailMessage.sendersEmail" name="sendersEmail" class="form-control" id="emailAddress"
+                placeholder="{{ 'ContactUsForm.EnterYourEmailAddressHere' | translate }}" type="email" required>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-12">
+            <div class="form-group">
+              <label for="contactMessage">{{ 'ContactUsForm.YourMessage' | translate }}</label>
+              <textarea [(ngModel)]="emailMessage.emailText" class="form-control" style="min-height: 50px;"
+                id="contactMessage" name="emailText"
+                placeholder="{{ 'ContactUsForm.WriteYourMessageHere' | translate }}" rows="9" minlength="20" required>
+            </textarea>
+            </div>
+          </div>
+        </div>
+      </fieldset>
+      <div *ngIf="messageWasSent || messageFailedToSend" class="row">
+        <div class="col-sm-12">
+          <h6 *ngIf="messageWasSent" class="alert alert-success"><b>¡Gracias por tu mensaje!</b> Nos pondremos en
+            contacto contigo.</h6>
+          <h6 *ngIf="messageFailedToSend" class="alert alert-danger">Ocurrió un error enviando tu mensaje. Por favor
+            intentalo más tarde o
+            escribinos directamente a <a href="mailto:quetenesparadar@gmail.com"><b>quetenesparadar@gmail.com</b></a>.</h6>
+        </div>
+      </div>
+    </form>
+  </div>
+  <div class="card-footer">
+    <button [disabled]="sendingMessage || messageWasSent" class="btn btn-md btn-primary pull-right" type="submit"
+      form="sendMessageForm">
+      {{ 'ContactUsForm.Send' | translate }}
+      <i *ngIf="!sendingMessage" class="fa fa-envelope ml-1"></i>
+      <i *ngIf="sendingMessage" class="fa fa-spinner fa-spin ml-1"></i>
+    </button>
+  </div>
+</div>

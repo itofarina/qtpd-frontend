@@ -1,0 +1,32 @@
+{
+    "NavBar": {
+        "Map": "Mapa",
+        "HowDoesItWork?": "¿Cómo funciona?",
+        "WhoWeAre?": "¿Quiénes somos?",
+        "Contact": "Contacto"
+    },
+    "animalSupplies": "Acc. p/animales",
+    "homeAccesories": "Acc. del hogar",
+    "food": "Alimentos",
+    "homeAppliances": "Electrodomésticos",
+    "medicalSupplies": "Ins. Médicos",
+    "toys": "Jueguetes",
+    "books": "Libros",
+    "didacticMaterials": "Mat. didácticos",
+    "furnitures": "Muebles",
+    "adultClothes": "Ropa de adultos",
+    "childrenClothes": "Ropa de niños",
+    "schoolSupplies": "Út. escolares",
+    "LoadingMap": "Cargando mapa...",
+    "YouAreHere": "Usted está aquí",
+    "ContactUsForm": {
+        "ContactUs!": "¡Contáctenos!",
+        "YourName": "Su nombre",
+        "EnterYourNameHere": "Ingrese aquí su nombre",
+        "YourEmailAddress": "Su correo electrónico",
+        "EnterYourEmailAddressHere": "Ingrese aquí su correo electrónico",
+        "YourMessage": "Su mensaje",
+        "WriteYourMessageHere": "Escriba aquí su mensaje...",
+        "Send": "Enviar"
+    }
+}

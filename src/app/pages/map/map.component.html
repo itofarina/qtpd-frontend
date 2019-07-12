@@ -1,0 +1,54 @@
+<div class="animated fadeIn row fill">
+  <div class="col-md-3 col-sm-12 padding-0">
+    <app-filters (filtersUpdated)="updateFilters($event)"></app-filters>
+  </div>
+
+  <div *ngIf="loadingMap" class="col-md-9 pl-0">
+    <div class="text-center mt-md-5">
+      <h5>{{ 'LoadingMap' | translate }}</h5>
+    </div>
+    <div class="sk-folding-cube">
+      <div class="sk-cube1 sk-cube"></div>
+      <div class="sk-cube2 sk-cube"></div>
+      <div class="sk-cube4 sk-cube"></div>
+      <div class="sk-cube3 sk-cube"></div>
+    </div>
+  </div>
+
+  <div class="col-md-9 col-sm-12 px-0 container-400">
+    <agm-map class="fill" [latitude]="initialPosition.latitude" [longitude]="initialPosition.longitude" [zoom]="10"
+      [streetViewControl]="false" (mapReady)="mapIsReady($event)">
+
+      <!-- User marker - START -->
+      <agm-marker [iconUrl]="'assets/img/map/you-are-here.png'" [latitude]="userPosition.latitude"
+        [longitude]="userPosition.longitude" [markerDraggable]="true" [zIndex]="2" [animation]="bounceAnimation"
+        (dragEnd)="newUserPosition($event)" (dragStart)="userMarkerDragging()" (mouseOver)="showYouAreHereMsg = false"
+        (mouseOut)="showYouAreHereMsg = false">
+        <agm-info-window [isOpen]="showYouAreHereMsg">
+          {{'YouAreHere' | translate}}
+        </agm-info-window>
+      </agm-marker>
+      <!-- User marker - END -->
+
+      <!-- Centers markers - START -->
+      <div *ngIf="showCentersMarkers">
+        <agm-marker *ngFor="let center of filteredCenters" [iconUrl]="_centersService.getIconUrlOfCenter(center)"
+          [latitude]="center.location.latitude" [longitude]="center.location.longitude" [animation]="dropAnimation"
+          (markerClick)="showCenterInfo(center)" (mouseOver)="showMarkerInfo[center._id]=true"
+          (mouseOut)="showMarkerInfo[center._id]=false">
+          <agm-info-window [isOpen]="showMarkerInfo[center._id]">
+            <span>{{center.name}}</span>
+          </agm-info-window>
+        </agm-marker>
+      </div>
+      <!-- Centers markers - END -->
+
+    </agm-map>
+    <app-footer-map></app-footer-map>
+  </div>
+</div>
+
+
+
+<app-center-info #centerInfoModal></app-center-info>
+<app-welcome-modal #welcomeModal></app-welcome-modal>

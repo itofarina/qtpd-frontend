@@ -1,0 +1,44 @@
+<header class="app-header navbar">
+  <a class="navbar-brand px-3" [routerLink]="['/']">
+    <img class="navbar-brand-full" src="assets/img/brand/logo-85x85.png" width="55" height="55" alt="QTPD Logo">
+    <span class="d-md-none d-lg-flex">
+      ¿Qué tenés para dar?
+    </span>
+  </a>
+  <ul class="nav navbar-nav d-none d-md-flex">
+    <li class="nav-item mx-2"><a class="nav-link" [routerLink]="['/']" routerLinkActive="active"
+        [routerLinkActiveOptions]="{ exact: true }">{{ 'NavBar.Map' | translate }}</a></li>
+    <li class="nav-item mx-2"><a class="nav-link" [routerLink]="['/how-does-it-work']"
+        routerLinkActive="active">{{ 'NavBar.HowDoesItWork?' | translate }}</a></li>
+    <li class="nav-item mx-2"><a class="nav-link" [routerLink]="['/who-we-are']"
+        routerLinkActive="active">{{ 'NavBar.WhoWeAre?' | translate }}</a></li>
+    <li class="nav-item mx-2"><a class="nav-link" [routerLink]="['/contact']"
+        routerLinkActive="active">{{ 'NavBar.Contact' | translate }}</a></li>
+  </ul>
+  <ul class="nav navbar-nav ml-auto">
+  </ul>
+  <button class="navbar-toggler d-md-none d-sm-flex" type="button" (click)="showMiniMenu = !showMiniMenu">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div [hidden]="!showMiniMenu" class="col-12 navbar d-md-none">
+    <div class="d-md-none d-sm-flex d-block">
+      <ul class="nav navbar-nav d-sm-flex d-block" (click)="showMiniMenu=false">
+        <li class="nav-item mx-2">
+          <a class="nav-link" [routerLink]="['/']" routerLinkActive="active"
+            [routerLinkActiveOptions]="{ exact: true }">{{ 'NavBar.Map' | translate }}</a>
+        </li>
+        <li class="nav-item mx-2">
+          <a class="nav-link" [routerLink]="['/how-does-it-work']"
+            routerLinkActive="active">{{ 'NavBar.HowDoesItWork?' | translate }}</a>
+        </li>
+        <li class="nav-item mx-2"><a class="nav-link" [routerLink]="['/who-we-are']"
+            routerLinkActive="active">{{ 'NavBar.WhoWeAre?' | translate }}</a>
+        </li>
+        <li class="nav-item mx-2"><a class="nav-link" [routerLink]="['/contact']"
+            routerLinkActive="active">{{ 'NavBar.Contact' | translate }}</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+</header>
