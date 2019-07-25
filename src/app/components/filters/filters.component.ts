@@ -14,6 +14,7 @@ export class FiltersComponent implements OnInit {
   donationsAndDistanceFilter: DonationsAndDistanceFilter = new DonationsAndDistanceFilter();
   @Output() filtersUpdated: EventEmitter<DonationsAndDistanceFilter> = new EventEmitter();
   loadingDonationTypes = true;
+  showAll = true;
 
   constructor(public _donationTypesService: DonationTypesService) {
     // subscribe to any changes in the filters  array
@@ -28,11 +29,28 @@ export class FiltersComponent implements OnInit {
     this.donationTypesFilter = this._donationTypesService.donationTypes as DonationTypeFilter[];
   }
 
+
   emitNewFilters() {
-    this.filtersUpdated.emit(this.donationsAndDistanceFilter);
+    if (this.showAll) {
+      this.filtersUpdated.emit(new DonationsAndDistanceFilter([], 10000));
+    } else {
+      this.filtersUpdated.emit(this.donationsAndDistanceFilter);
+    }
+  }
+
+  showAllCenters() {
+    this.donationsAndDistanceFilter.maxDistance = 100;
+    this.showAll = true;
+    this.emitNewFilters();
+  }
+
+  updateDistance() {
+    this.showAll = false;
+    this.emitNewFilters();
   }
 
   updateDonationTypesFilters() {
+    this.showAll = false;
     this.donationsAndDistanceFilter.donationTypes = this.donationTypesFilter.filter(x => x.checked).map(x => x._id);
     this.emitNewFilters();
   }

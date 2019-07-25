@@ -31,7 +31,7 @@
       <!-- User marker - END -->
 
       <!-- Centers markers - START -->
-      <div *ngIf="showCentersMarkers">
+      <div>
         <agm-marker *ngFor="let center of filteredCenters" [iconUrl]="_centersService.getIconUrlOfCenter(center)"
           [latitude]="center.location.latitude" [longitude]="center.location.longitude" [animation]="dropAnimation"
           (markerClick)="showCenterInfo(center)" (mouseOver)="showMarkerInfo[center._id]=true"

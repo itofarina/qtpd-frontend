@@ -4,10 +4,10 @@ export class CenterFilter {
     constructor(
         public donationTypes: string[] = [],
         public locationLatLng: LocationLatLng = new LocationLatLng(),
-        public maxDistance: number = 30
+        public maxDistance: number = 100
     ) { }
 }
 
 export class DonationsAndDistanceFilter {
-    constructor(public donationTypes: string[] = [], public maxDistance = 30) { }
+    constructor(public donationTypes: string[] = [], public maxDistance = 100) { }
 }

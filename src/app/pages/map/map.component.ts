@@ -16,7 +16,8 @@ export class MapComponent implements OnInit {
 
   @ViewChild('centerInfoModal', { static: true }) centerInfoModal: CenterInfoComponent;
   @ViewChild('welcomeModal', { static: true }) welcomeModal: WelcomeModalComponent;
-  centersFilter: CenterFilter = new CenterFilter();
+  // initial values for the filters (1000 kms to show all)
+  centersFilter: CenterFilter = new CenterFilter([], new LocationLatLng(), 1000);
   keyWelcomeModalKeyWasShown = 'keyWelcomeModalKeyWasShown';
   filteredCenters: Center[] = [];
   initialPosition: LocationLatLng = new LocationLatLng();
@@ -28,7 +29,6 @@ export class MapComponent implements OnInit {
   bounceAnimation: any;
   dropAnimation: any;
   loadingMap = false;
-  showCentersMarkers = true;
   showMarkerInfo: boolean[] = [];
   showYouAreHereMsg = true;
 
@@ -78,7 +78,6 @@ export class MapComponent implements OnInit {
   }
 
   newUserPosition(newPosition) {
-    this.showCentersMarkers = true;
     this.userPosition.latitude = newPosition.coords.lat;
     this.userPosition.longitude = newPosition.coords.lng;
     this.updateFilters();
@@ -91,7 +90,9 @@ export class MapComponent implements OnInit {
 
   showFilteredCenters() {
     this._centersService.getFilteredCenters(this.centersFilter)
-      .subscribe(centersFiltered => this.filteredCenters = centersFiltered);
+      .subscribe(centersFiltered => {
+        this.filteredCenters = centersFiltered;
+      });
   }
 
   showWelcomeModalIfApplies() {
@@ -117,7 +118,7 @@ export class MapComponent implements OnInit {
   }
 
   userMarkerDragging() {
-    this.showCentersMarkers = false;
+    this.filteredCenters = [];
   }
 
 }
