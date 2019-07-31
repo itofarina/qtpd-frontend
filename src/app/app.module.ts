@@ -16,7 +16,6 @@ import { LazyMapsAPILoaderConfigLiteral, LAZY_MAPS_API_CONFIG, AgmCoreModule } f
 // Components
 import { AppComponent } from './app.component';
 import { PagesComponent } from './pages/pages.component';
-import { AnalyticsService } from './services/analytics.service';
 
 // AoT requires an exported function for factories
 export function HttpLoaderFactory(httpClient: HttpClient) {

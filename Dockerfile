@@ -28,6 +28,7 @@ RUN npm install
 ENV APIEndpoint "$APIEndpoint"
 ENV ENVIRONMENT="$ENVIRONMENT"
 ENV googleMapsApiKey="$googleMapsApiKey"
+ENV googleAnalyticsKey="$googleAnalyticsKey"
 
 # Build Angular Application in Production
 RUN ng build --prod

@@ -39,6 +39,7 @@ export class FiltersComponent implements OnInit {
   }
 
   showAllCenters() {
+    this.donationTypesFilter.map((d) => d.checked = false);
     this.donationsAndDistanceFilter.maxDistance = 100;
     this.showAll = true;
     this.emitNewFilters();
