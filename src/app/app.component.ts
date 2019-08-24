@@ -21,7 +21,7 @@ export class AppComponent implements OnInit {
   }
 
   ngOnInit() {
-    if (environment.production) {
+    if (environment.environment.toLowerCase() === 'production') {
       this.analyticsService.init();
     }
   }

@@ -4,10 +4,9 @@
 
 export const environment = {
   APIEndpoint: 'http://localhost:3000',
-  environment: 'development',
+  environment: '',
   googleAnalyticsKey: '',
-  googleMapsApiKey: '',
-  production: false
+  googleMapsApiKey: ''
 };
 
 /*

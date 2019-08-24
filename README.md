@@ -15,7 +15,8 @@ In order to run the app. You need to provide the following variables for the pro
 
 - APIEndpoint - where the API is running
 - googleMapsApiKey - the api key for google maps
-- production - true or false depending on the environment you want to run
+- environment - development|production|test
+- googleAnalyticsKey - your Analytics key
 
 ### Usage
 - To start the project, run:
