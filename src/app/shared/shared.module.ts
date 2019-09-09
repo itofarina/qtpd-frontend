@@ -7,13 +7,11 @@ import { ModalModule } from 'ngx-bootstrap/modal';
 import { TranslateModule } from '@ngx-translate/core';
 
 // Components
-import { NoPageFoundComponent } from './no-page-found/no-page-found.component';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
 
 @NgModule({
     declarations: [
         NavBarComponent,
-        NoPageFoundComponent
     ],
     imports: [
         AgmCoreModule,
@@ -24,7 +22,6 @@ import { NavBarComponent } from './nav-bar/nav-bar.component';
     providers: [],
     exports: [
         NavBarComponent,
-        NoPageFoundComponent,
         // Modules
         AgmCoreModule,
         ModalModule,

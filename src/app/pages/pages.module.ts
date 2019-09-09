@@ -11,6 +11,7 @@ import { MapComponent } from './map/map.component';
 import { WhoWeAreComponent } from './who-we-are/who-we-are.component';
 import { HowDoesItWorkComponent } from './how-does-it-work/how-does-it-work.component';
 import { ContactUsComponent } from './contact/contact-us.component';
+import { NoPageFoundComponent } from './no-page-found/no-page-found.component';
 
 @NgModule({
     declarations: [
@@ -18,6 +19,7 @@ import { ContactUsComponent } from './contact/contact-us.component';
         WhoWeAreComponent,
         HowDoesItWorkComponent,
         ContactUsComponent,
+        NoPageFoundComponent
     ],
     exports: [
         MapComponent
