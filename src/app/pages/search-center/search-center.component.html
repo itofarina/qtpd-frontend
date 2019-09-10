@@ -12,7 +12,9 @@
             </div>
             <div class="col-md-6 mt-2">
               <button class="btn btn-primary col-md-12" [disabled]="loading" type="submit"
-                form="searchClientForm">Buscar
+                form="searchClientForm">
+                <span *ngIf="query.length > 0">Buscar </span>
+                <span *ngIf="query.length === 0">Ver todos </span>
                 <i class="fa fa-spinner fa-spin" *ngIf="loading"></i>
               </button>
             </div>
