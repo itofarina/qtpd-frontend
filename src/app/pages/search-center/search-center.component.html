@@ -29,6 +29,7 @@
     <div class="card card-accent-primary">
       <div class="card-header">
         Resultados
+        <div *ngIf="!loading" class="small text-muted">Seleccione una fila para ver más detalles del centro</div>
       </div>
       <div class="card-body">
         <div *ngIf="loading" class="row container-400">

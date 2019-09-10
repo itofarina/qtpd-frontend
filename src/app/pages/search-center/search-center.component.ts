@@ -20,7 +20,7 @@ export class SearchCenterComponent implements OnInit {
   }
 
   getIdSummary(id: string): string {
-    return id.length > 6 ? id.slice(id.length - 7, id.length - 1) : id;
+    return id.length > 6 ? id.slice(0, 6) : id;
   }
 
   searchCentersByQuery() {
