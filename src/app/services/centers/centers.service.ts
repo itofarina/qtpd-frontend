@@ -73,6 +73,19 @@ export class CentersService {
         }));
     }
 
+    searchCentersByQuery(query = ''): Observable<any> {
+        const url = `${environment.APIEndpoint}/${CONFIG.apiUri.searchCentersByQuery}`;
+        return this.http.post(url, { query }).pipe(map((centersResponse: any) => {
+            if (centersResponse.success) {
+                return centersResponse.data.map(c => this.parseCenterFromApiModel(c));
+            } else {
+                console.error('Ocurrió un error obteniendo los centros filtrados. Por favor inténtelo nuevamente.');
+            }
+        }), catchError(error => {
+            return error;
+        }));
+    }
+
     private parseCenterFromApiModel(apiCenter): Center {
         const donationTypes = apiCenter.donationTypes.map(d => this._donationTypesService.parseFromApi(d));
         const centerLocation = new LocationLatLng(apiCenter.loc.coordinates[1], apiCenter.loc.coordinates[0]);

@@ -3,6 +3,7 @@ import { RouterModule } from '@angular/router';
 
 // Modules
 import { AgmCoreModule } from '@agm/core';
+import { DataTableModule } from 'angular-6-datatable';
 import { ModalModule } from 'ngx-bootstrap/modal';
 import { TranslateModule } from '@ngx-translate/core';
 
@@ -15,6 +16,7 @@ import { NavBarComponent } from './nav-bar/nav-bar.component';
     ],
     imports: [
         AgmCoreModule,
+        DataTableModule,
         ModalModule.forRoot(),
         RouterModule,
         TranslateModule
@@ -24,6 +26,7 @@ import { NavBarComponent } from './nav-bar/nav-bar.component';
         NavBarComponent,
         // Modules
         AgmCoreModule,
+        DataTableModule,
         ModalModule,
         TranslateModule
     ]

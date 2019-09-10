@@ -3,7 +3,8 @@ export const CONFIG = {
         centers: 'centers',
         donationTypes: 'donationTypes',
         email: 'email',
-        filteredCenters: 'centers/filtered'
+        filteredCenters: 'centers/filtered',
+        searchCentersByQuery: 'centers/searchByQuery',
     },
     iconUrls: {
         animals: 'assets/img/map/animal-center.png',

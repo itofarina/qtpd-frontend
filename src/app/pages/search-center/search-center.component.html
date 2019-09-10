@@ -1,0 +1,99 @@
+<div class="row mt-4">
+  <div class="col-12">
+    <div class="card card-accent-primary">
+      <div class="card-header">
+        Búsqueda
+      </div>
+      <div class="card-body">
+        <form #form="ngForm" id="searchClientForm" class="form-horizontal" (ngSubmit)="searchCentersByQuery()">
+          <div class="form-group row">
+            <div class="col-md-6">
+              <input [(ngModel)]="query" name="query" class="form-control" placeholder="Ingrese su búsqueda">
+            </div>
+            <div class="col-md-6">
+              <button class="btn btn-primary col-md-12" [disabled]="loading" type="submit"
+                form="searchClientForm">Buscar
+                <i class="fa fa-spinner fa-spin" *ngIf="loading"></i>
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="col-12">
+    <div class="card card-accent-primary">
+      <div class="card-header">
+        Resultados
+      </div>
+      <div class="card-body">
+        <div *ngIf="loading" class="row container-400">
+          <div class="col-12">
+            <div class="sk-chasing-dots">
+              <div class="sk-child sk-dot1"></div>
+              <div class="sk-child sk-dot2"></div>
+              <div class="sk-child sk-dot3"></div>
+              <div class="sk-child sk-dot4"></div>
+            </div>
+          </div>
+        </div>
+        <div *ngIf="!loading" class="row">
+          <div class="col-12">
+            <div class="table-responsive">
+              <table class="table table-hover table-bordered table-striped" [mfData]="centersResult" [mfRowsOnPage]="10"
+                #centersResultDataTable="mfDataTable">
+                <thead>
+                  <tr>
+                    <th>
+                      #
+                    </th>
+                    <th>
+                      <mfDefaultSorter by="name">Nombre</mfDefaultSorter>
+                    </th>
+                    <th>
+                      Dirección
+                    </th>
+                    <th>
+                      <mfDefaultSorter by="e-mail">e-mail</mfDefaultSorter>
+                    </th>
+                    <th>
+                      <mfDefaultSorter by="phone">Teléfono</mfDefaultSorter>
+                    </th>
+                    <th>Horario</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let center of centersResultDataTable.data" (click)="showCenterInfo(center)" class="cursor-pointer">
+                    <td>{{ getIdSummary(center._id) }}</td>
+                    <td>{{ center.name }}</td>
+                    <td>
+                      <i class="fa fa-home mr-1"></i>{{ center.street }}
+                      <span *ngIf="center.doorNumber"> - {{ center.doorNumber }}</span>
+                      <span *ngIf="center.apartmentNumber"> - {{ center.apartmentNumber }}</span>
+                      <br />
+                      <i class="fa fa-road mr-1"></i>{{ center.department }} - {{ center.city }}
+                    </td>
+                    <td>{{ center.email }}</td>
+                    <td>{{ center.phone }}</td>
+                    <td>{{ center.workingHours }}</td>
+                  </tr>
+                </tbody>
+                <tfoot>
+                  <tr>
+                    <td colspan="6">
+                      <mfBootstrapPaginator [rowsOnPageSet]="[5,10,25,50]"></mfBootstrapPaginator>
+                    </td>
+                  </tr>
+                </tfoot>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<app-center-info #centerInfoModal></app-center-info>

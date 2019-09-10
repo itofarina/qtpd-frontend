@@ -12,6 +12,7 @@ import { WhoWeAreComponent } from './who-we-are/who-we-are.component';
 import { HowDoesItWorkComponent } from './how-does-it-work/how-does-it-work.component';
 import { ContactUsComponent } from './contact/contact-us.component';
 import { NoPageFoundComponent } from './no-page-found/no-page-found.component';
+import { SearchCenterComponent } from './search-center/search-center.component';
 
 @NgModule({
     declarations: [
@@ -19,7 +20,8 @@ import { NoPageFoundComponent } from './no-page-found/no-page-found.component';
         WhoWeAreComponent,
         HowDoesItWorkComponent,
         ContactUsComponent,
-        NoPageFoundComponent
+        NoPageFoundComponent,
+        SearchCenterComponent
     ],
     exports: [
         MapComponent
