@@ -5,6 +5,7 @@ export const CONFIG = {
         email: 'email',
         filteredCenters: 'centers/filtered',
         searchCentersByQuery: 'centers/searchByQuery',
+        searchCentersByType: 'centers/byType',
     },
     iconUrls: {
         animals: 'assets/img/map/animal-center.png',

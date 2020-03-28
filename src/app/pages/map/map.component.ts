@@ -1,4 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 // Services
 import { CentersService } from '../../services/centers/centers.service';
 // Models
@@ -8,6 +9,7 @@ import { LocationLatLng, Center } from '../../models/center';
 import { CenterInfoComponent } from '../../components/center-info/center-info.component';
 import { WelcomeModalComponent } from '../../components/welcome-modal/welcome-modal.component';
 import { CovidModalComponent } from '../../components/covid-modal/covid-modal.component';
+import { CenterTypeEnum } from '../../models/enums';
 
 @Component({
   selector: 'app-map',
@@ -34,20 +36,32 @@ export class MapComponent implements OnInit {
   showMarkerInfo: boolean[] = [];
   showYouAreHereMsg = true;
 
-  constructor(public _centersService: CentersService) { }
+  constructor(
+    public _centersService: CentersService,
+    private route: ActivatedRoute) { }
 
   ngOnInit() {
     this.loadingMap = true;
-    // show using default location
-    this.showFilteredCenters();
-    // ask the user for location, if the user allows, we will filter again based in that location and re center the map
-    this.getBrowserLocationAndFilter();
+
+    // this feature was added to show only centers by type due to the emergencies of the covid-19
+    const centerType = this.route.snapshot.queryParamMap.get('centerType');
+    if (centerType && CenterTypeEnum[centerType]) {
+      this._centersService.searchCentersByType(centerType)
+        .subscribe(centersFiltered => {
+          this.filteredCenters = centersFiltered;
+        });
+    }
+    else {
+      // show using default location
+      this.showFilteredCenters();
+      // ask the user for location, if the user allows, we will filter again based in that location and re center the map
+      this.getBrowserLocationAndFilter();
+    }
 
     // this.showWelcomeModalIfApplies();
     setTimeout(() => {
       // this timeout is a workaround, if we don't put it, the page fails to render the modal
       this.covidModal.openModal();
-
     });
   }
 
