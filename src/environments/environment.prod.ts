@@ -1,6 +1,6 @@
 export const environment = {
-    APIEndpoint: $ENV.APIEndpoint,
-    environment: $ENV.ENVIRONMENT,
+    APIEndpoint: "https://qtpd.manzo.uy/api",
+    environment: 'production',
     googleAnalyticsKey: 'UA-61396425-1',
-    googleMapsApiKey: $ENV.googleMapsApiKey
+    googleMapsApiKey: 'AIzaSyC1GEqMpLS7JQLsqTVAGUfHwSMMtrWZgrs'
 };

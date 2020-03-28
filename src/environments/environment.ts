@@ -3,7 +3,7 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  APIEndpoint: 'http://localhost:3000',
+  APIEndpoint: 'https://qtpd.manzo.uy/api',
   environment: '',
   googleAnalyticsKey: '',
   googleMapsApiKey: ''

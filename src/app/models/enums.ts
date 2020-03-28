@@ -4,4 +4,5 @@ export enum CenterTypeEnum {
     'Organization' = 'Organization',
     'ReligiousCenter' = 'ReligiousCenter',
     'School' = 'School',
+    'Olla' = 'Olla',
 }

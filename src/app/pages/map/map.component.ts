@@ -7,6 +7,7 @@ import { LocationLatLng, Center } from '../../models/center';
 // Components
 import { CenterInfoComponent } from '../../components/center-info/center-info.component';
 import { WelcomeModalComponent } from '../../components/welcome-modal/welcome-modal.component';
+import { CovidModalComponent } from '../../components/covid-modal/covid-modal.component';
 
 @Component({
   selector: 'app-map',
@@ -16,6 +17,7 @@ export class MapComponent implements OnInit {
 
   @ViewChild('centerInfoModal', { static: true }) centerInfoModal: CenterInfoComponent;
   @ViewChild('welcomeModal', { static: true }) welcomeModal: WelcomeModalComponent;
+  @ViewChild('covidModal', { static: true }) covidModal: CovidModalComponent;
   // initial values for the filters (1000 kms to show all)
   centersFilter: CenterFilter = new CenterFilter([], new LocationLatLng(), 1000);
   keyWelcomeModalKeyWasShown = 'keyWelcomeModalKeyWasShown';
@@ -41,7 +43,12 @@ export class MapComponent implements OnInit {
     // ask the user for location, if the user allows, we will filter again based in that location and re center the map
     this.getBrowserLocationAndFilter();
 
-    this.showWelcomeModalIfApplies();
+    // this.showWelcomeModalIfApplies();
+    setTimeout(() => {
+      // this timeout is a workaround, if we don't put it, the page fails to render the modal
+      this.covidModal.openModal();
+
+    });
   }
 
   getBrowserLocationAndFilter() {

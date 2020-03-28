@@ -12,6 +12,7 @@ export const CONFIG = {
         organization: 'assets/img/map/organization-center.png',
         religious: 'assets/img/map/religious-center.png',
         school: 'assets/img/map/school-center.png',
+        olla: 'assets/img/map/pot.png',
         youAreHere: 'assets/img/map/you-are-here.png'
     }
 };

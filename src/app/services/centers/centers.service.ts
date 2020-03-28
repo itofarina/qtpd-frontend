@@ -37,6 +37,8 @@ export class CentersService {
                 return CONFIG.iconUrls.religious;
             case CenterTypeEnum.School:
                 return CONFIG.iconUrls.school;
+            case CenterTypeEnum.Olla:
+                return CONFIG.iconUrls.olla;
             default:
                 return CONFIG.iconUrls.organization;
         }

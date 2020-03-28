@@ -13,10 +13,11 @@ import { CenterInfoComponent } from './center-info/center-info.component';
 import { WelcomeModalComponent } from './welcome-modal/welcome-modal.component';
 import { FooterNoMapComponent } from './footer-no-map/footer-no-map.component';
 import { FooterMapComponent } from './footer-map/footer-map.component';
+import { CovidModalComponent } from './covid-modal/covid-modal.component';
 
 @NgModule({
     imports: [
-        CommonModule,
+    CommonModule,
         FormsModule,
         SharedModule,
         // external modules
@@ -28,6 +29,7 @@ import { FooterMapComponent } from './footer-map/footer-map.component';
         FiltersComponent,
         FooterNoMapComponent,
         WelcomeModalComponent,
+        CovidModalComponent,
         FooterMapComponent
     ],
     exports: [
@@ -40,6 +42,7 @@ import { FooterMapComponent } from './footer-map/footer-map.component';
         FiltersComponent,
         FooterMapComponent,
         FooterNoMapComponent,
+        CovidModalComponent,
         WelcomeModalComponent
     ]
 })
