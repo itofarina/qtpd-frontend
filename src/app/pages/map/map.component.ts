@@ -43,6 +43,7 @@ export class MapComponent implements OnInit {
   ngOnInit() {
     this.loadingMap = true;
 
+    debugger
     // this feature was added to show only centers by type due to the emergencies of the covid-19
     const centerType = this.route.snapshot.queryParamMap.get('centerType');
     if (centerType && CenterTypeEnum[centerType]) {
@@ -56,13 +57,14 @@ export class MapComponent implements OnInit {
       this.showFilteredCenters();
       // ask the user for location, if the user allows, we will filter again based in that location and re center the map
       this.getBrowserLocationAndFilter();
+
+      // this.showWelcomeModalIfApplies();
+      setTimeout(() => {
+        // this timeout is a workaround, if we don't put it, the page fails to render the modal
+        this.covidModal.openModal();
+      });
     }
 
-    // this.showWelcomeModalIfApplies();
-    setTimeout(() => {
-      // this timeout is a workaround, if we don't put it, the page fails to render the modal
-      this.covidModal.openModal();
-    });
   }
 
   getBrowserLocationAndFilter() {
