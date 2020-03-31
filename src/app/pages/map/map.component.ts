@@ -43,7 +43,6 @@ export class MapComponent implements OnInit {
   ngOnInit() {
     this.loadingMap = true;
 
-    debugger
     // this feature was added to show only centers by type due to the emergencies of the covid-19
     const centerType = this.route.snapshot.queryParamMap.get('centerType');
     if (centerType && CenterTypeEnum[centerType]) {

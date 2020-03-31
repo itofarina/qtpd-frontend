@@ -6,6 +6,7 @@ import { HowDoesItWorkComponent } from './how-does-it-work/how-does-it-work.comp
 import { WhoWeAreComponent } from './who-we-are/who-we-are.component';
 import { ContactUsComponent } from './contact/contact-us.component';
 import { NoPageFoundComponent } from './no-page-found/no-page-found.component';
+import { RegisterComponent } from './register/register.component';
 import { SearchCenterComponent } from './search-center/search-center.component';
 
 const pagesRoutes: Routes = [
@@ -14,6 +15,7 @@ const pagesRoutes: Routes = [
     { path: 'how-does-it-work', component: HowDoesItWorkComponent, data: { title: '¿Cómo funciona?' } },
     { path: 'who-we-are', component: WhoWeAreComponent, data: { title: '¿Quiénes somos?' } },
     { path: 'busqueda', component: SearchCenterComponent, data: { title: 'Búsqueda de centros' } },
+    { path: 'registro', component: RegisterComponent, data: { title: 'Registro de centros' } },
     { path: '**', component: NoPageFoundComponent }
 ];
 
