@@ -1,3 +1,6 @@
+_This repository no longer mainteined here, it is now on https://github.com/Que-tenes-para-dar/qtpd-angular_
+
+
 # ¿Qué tenés para dar? - Frontend
 
 ### Introduction
